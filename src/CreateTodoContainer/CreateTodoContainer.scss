@@ -1,0 +1,134 @@
+@use '../global.scss' as global;
+
+.CreateTodoContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 400px;
+	max-width: 500px;
+	width: 40%;
+	height: 70%;
+	padding: 20px;
+	background-color: global.$background;
+	border: 4px solid global.$border;
+	border-radius: 20px;
+
+	h2 {
+		margin: 10px;
+		font-family: global.$secondary-font;
+		font-size: 3.6rem;
+		color: global.$headline;
+	}
+
+	input {
+		width: 80%;
+		min-height: 40px;
+		border: 2px solid global.$border;
+		border-radius: 15px;
+		padding: 0 10px;
+		margin: 10px;
+		box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+		-webkit-box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+		-moz-box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+		transition: all ease 0.2s;
+		font-family: global.$secondary-font;
+		font-size: 1.6rem;
+		font-weight: 700;
+		color: global.$background;
+
+		&:focus {
+			outline: none;
+			width: 85%;
+			height: 45px;
+		}
+	}
+
+	.CreateTodoPicture {
+		width: 70%;
+		height: 70%;
+		background-image: url('./img/Todolist.svg');
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+	@media (max-width: 860px) {
+		position: fixed;
+		bottom: 35px;
+		right: 35px;
+		min-width: 0;
+		width: fit-content;
+		height: fit-content;
+		border: none;
+
+		h2 {
+			display: none;
+		}
+
+		input {
+			display: none;
+		}
+
+		.CreateTodoPicture {
+			display: none;
+		}
+
+		.CreateTodoInput {
+			display: none;
+		}
+	}
+}
+
+.CreateTodoButton {
+	position: relative;
+	width: 150px;
+	height: 40px;
+	margin: 10px;
+	background-color: global.$button;
+	border: 2px solid global.$border;
+	border-radius: 20px;
+	font-family: global.$secondary-font;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: global.$background;
+
+	&::after {
+		content: 'New task';
+	}
+
+	&:hover {
+		opacity: 0.9;
+		cursor: pointer;
+	}
+
+	&:active {
+		opacity: 1;
+		box-shadow: 1px 1px 400px -2px rgba(0, 0, 0, 0.75) inset;
+		-webkit-box-shadow: 1px 1px 400px -2px rgba(0, 0, 0, 0.75) inset;
+		-moz-box-shadow: 1px 1px 400px -2px rgba(0, 0, 0, 0.75) inset;
+	}
+
+	@media (max-width: 860px) {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		width: 50px;
+		height: 50px;
+		border-radius: 50px;
+		transition: all ease 0.2s;
+		font-family: global.$primary-font;
+		font-size: 3.6rem;
+		font-weight: 500;
+		color: global.$button-text;
+
+		&:hover {
+			width: 60px;
+			height: 60px;
+			font-size: 4.4rem;
+		}
+
+		&::after {
+			content: '+';
+		}
+	}
+}

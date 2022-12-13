@@ -1,0 +1,8 @@
+@use '../global.scss' as global;
+
+.TodoCounter {
+	margin: 10px;
+	font-family: global.$secondary-font;
+	font-size: 2.4rem;
+	color: global.$headline;
+}

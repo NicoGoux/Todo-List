@@ -1,0 +1,64 @@
+@use '../../global.scss' as global;
+
+.TodoItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	min-height: 70px;
+	padding: 0 20px;
+	background-color: global.$background-opaque;
+	box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(127, 90, 240, 0.29);
+	border: 2px solid global.$secondary;
+	border-radius: 20px;
+	margin: 10px;
+
+	p {
+		width: 75%;
+		text-align: start;
+		font-family: global.$tertiary-font;
+		font-size: 1.6rem;
+		margin-left: 10px;
+	}
+
+	.checkBox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 35px;
+		height: 35px;
+		border: 2px solid global.$secondary;
+		border-radius: 50px;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		.circle {
+			width: 80%;
+			height: 80%;
+			background-color: global.$button;
+			border: 2px solid global.$secondary;
+			border-radius: 50px;
+		}
+	}
+
+	.deleteTodo {
+		color: rgb(236, 74, 74);
+		font-size: 1.8rem;
+		font-weight: 700;
+		font-family: global.$tertiary-font;
+		cursor: pointer;
+	}
+
+	@media (max-width: 860px) {
+		margin: 10px 0;
+	}
+
+	.completed {
+		text-decoration: line-through;
+	}
+}
