@@ -16,10 +16,12 @@ function CreateTodoContainer() {
 		matchesWidth,
 	} = useContext(Context);
 
-	const onClickAddButton = () => {
+	const onSubmit = (event) => {
+		event.preventDefault();
 		if (inputValue === '') {
 			return;
 		}
+
 		if (todoList.some((todoInList) => todoInList.text === inputValue)) {
 			alert('Todo already exist');
 			return;
@@ -47,14 +49,14 @@ function CreateTodoContainer() {
 			{matchesWidth ? (
 				<CreateTodoContainerUI
 					onInputChange={onInputChange}
-					onClickAddButton={onClickAddButton}
+					onSubmit={onSubmit}
 					onClickOpenModalButton={onClickOpenModalButton}
 					onClickCloseModalButton={onClickCloseModalButton}
 				/>
 			) : (
 				<CreateTodoContainerUI
 					onInputChange={onInputChange}
-					onClickAddButton={onClickAddButton}
+					onSubmit={onSubmit}
 					onClickOpenModalButton={onClickOpenModalButton}
 					onClickCloseModalButton={onClickCloseModalButton}
 				/>

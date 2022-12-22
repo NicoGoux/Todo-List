@@ -6,7 +6,7 @@ import './CreateTodoContainer.scss';
 
 function CreateTodoContainerUI({
 	onInputChange,
-	onClickAddButton,
+	onSubmit,
 	onClickOpenModalButton,
 	onClickCloseModalButton,
 }) {
@@ -17,13 +17,16 @@ function CreateTodoContainerUI({
 			{!matchesWidth ? (
 				<div className='CreateTodoContainer'>
 					<h2>Create new task</h2>
-					<input
-						type='text'
-						placeholder='New task'
-						value={inputValue}
-						onChange={onInputChange}
-					/>
-					<button className={'CreateTodoButton'} onClick={onClickAddButton}></button>
+					<form onSubmit={onSubmit}>
+						<textarea
+							className='newTodoInput'
+							type='text'
+							placeholder='New task'
+							value={inputValue}
+							onChange={onInputChange}
+						/>
+						<button type='submit' className={'CreateTodoButton'}></button>
+					</form>
 					<div className='CreateTodoPicture'></div>
 				</div>
 			) : (
@@ -34,19 +37,17 @@ function CreateTodoContainerUI({
 							<div className='closeModalButton' onClick={onClickCloseModalButton}>
 								X
 							</div>
-							<div className='CreateTodoContainer'>
-								<h2>Create new task</h2>
-								<input
+							<h2>Create new task</h2>
+							<form onSubmit={onSubmit}>
+								<textarea
+									className='newTodoInput'
 									type='text'
 									placeholder='New task'
 									value={inputValue}
 									onChange={onInputChange}
 								/>
-								<button
-									className={'CreateTodoButton'}
-									onClick={onClickAddButton}
-								></button>
-							</div>
+								<button type='submit' className={'CreateTodoButton'}></button>
+							</form>
 						</Modal>
 					)}
 				</Fragment>
