@@ -3,17 +3,11 @@ import './App.scss';
 import {CreateTodoContainer} from '../CreateTodoContainer';
 import {TodoContainer} from '../TodoContainer';
 
-function AppUI({todoList, setTodoList}) {
+function AppUI() {
 	return (
 		<React.Fragment>
-			<CreateTodoContainer
-				todoList={todoList}
-				setTodoList={setTodoList}
-			/>
-			<TodoContainer
-				todoList={todoList}
-				setTodoList={setTodoList}
-			></TodoContainer>
+			<CreateTodoContainer />
+			<TodoContainer />
 		</React.Fragment>
 	);
 }

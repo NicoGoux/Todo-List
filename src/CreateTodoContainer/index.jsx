@@ -1,10 +1,22 @@
-import React from 'react';
+import {useContext} from 'react';
+import {Fragment} from 'react';
 import {CreateTodoContainerUI} from './CreateTodoContainerUI';
+import {Context} from '../Context';
 
-function CreateTodoContainer({todoList, setTodoList}) {
-	const [inputValue, setInputValue] = React.useState('');
+function CreateTodoContainer() {
+	//TODO implementar el modal
 
-	const onClickButton = () => {
+	const {
+		todoList,
+		saveTodoList,
+		inputValue,
+		setInputValue,
+		openModal,
+		setOpenModal,
+		matchesWidth,
+	} = useContext(Context);
+
+	const onClickAddButton = () => {
 		if (inputValue === '') {
 			return;
 		}
@@ -13,7 +25,17 @@ function CreateTodoContainer({todoList, setTodoList}) {
 			return;
 		}
 		const newTodo = {text: inputValue, completed: false};
-		setTodoList([...todoList, newTodo]);
+		saveTodoList([...todoList, newTodo]);
+		if (openModal) setOpenModal(false);
+		setInputValue('');
+	};
+
+	const onClickOpenModalButton = () => {
+		setOpenModal(true);
+	};
+
+	const onClickCloseModalButton = () => {
+		setOpenModal(false);
 	};
 
 	const onInputChange = (event) => {
@@ -21,11 +43,23 @@ function CreateTodoContainer({todoList, setTodoList}) {
 	};
 
 	return (
-		<CreateTodoContainerUI
-			inputValue={inputValue}
-			onInputChange={onInputChange}
-			onClickButton={onClickButton}
-		></CreateTodoContainerUI>
+		<Fragment>
+			{matchesWidth ? (
+				<CreateTodoContainerUI
+					onInputChange={onInputChange}
+					onClickAddButton={onClickAddButton}
+					onClickOpenModalButton={onClickOpenModalButton}
+					onClickCloseModalButton={onClickCloseModalButton}
+				/>
+			) : (
+				<CreateTodoContainerUI
+					onInputChange={onInputChange}
+					onClickAddButton={onClickAddButton}
+					onClickOpenModalButton={onClickOpenModalButton}
+					onClickCloseModalButton={onClickCloseModalButton}
+				/>
+			)}
+		</Fragment>
 	);
 }
 

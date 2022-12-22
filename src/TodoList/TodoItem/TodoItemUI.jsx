@@ -7,7 +7,7 @@ function TodoItemUI({todo, checked, onClickCheckBox, onClickDelete}) {
 			<div className='checkBox' onClick={onClickCheckBox}>
 				<div className={`circle ${!checked && 'inactive'}`}></div>
 			</div>
-			<p className={checked && 'completed'}>{todo.text}</p>
+			<p className={checked ? 'completed' : undefined}>{todo.text}</p>
 			<div className='deleteTodo' onClick={onClickDelete}>
 				X
 			</div>

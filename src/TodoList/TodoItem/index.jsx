@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {TodoItemUI} from './TodoItemUI';
 
-function TodoItem({todo, todoList, setTodoList}) {
+function TodoItem({todo, todoListFiltered, todoList, saveTodoList}) {
 	const [checked, setChecked] = useState(todo.completed);
 
 	const onClickCheckBox = () => {
@@ -10,14 +10,14 @@ function TodoItem({todo, todoList, setTodoList}) {
 
 		// Actualiza el estado de la lista para que se vea reflejado en el contador
 		const newTodoList = [...todoList];
-		setTodoList(newTodoList);
+		saveTodoList(newTodoList);
 	};
 
 	const onClickDelete = () => {
-		const newTodoList = todoList.filter(
+		const newTodoList = todoListFiltered.filter(
 			(todoInList) => todoInList.text !== todo.text
 		);
-		setTodoList(newTodoList);
+		saveTodoList(newTodoList);
 	};
 
 	return (

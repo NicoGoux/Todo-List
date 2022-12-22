@@ -1,32 +1,16 @@
-import {useEffect, useState} from 'react';
+import {useContext} from 'react';
+import {Context} from '../Context';
 import {TodoSearchUI} from './TodoSearchUI';
 
-function TodoSearch({todoList, setTodoListFiltered}) {
-	const [searchValue, setSearchValue] = useState('');
-
-	const filterFunction = () => {
-		setTodoListFiltered(
-			todoList.filter((todo) =>
-				todo.text.toLowerCase().includes(searchValue.toLowerCase())
-			)
-		);
-	};
-
-	useEffect(() => filterFunction(), [searchValue]); // eslint-disable-line react-hooks/exhaustive-deps
+function TodoSearch() {
+	const {searchValue, setSearchValue} = useContext(Context);
 
 	const onChangeSearchInput = (event) => {
+		console.log(event.target.value);
 		setSearchValue(event.target.value);
 	};
 
-	return (
-		<TodoSearchUI
-			className='TodoSearch'
-			type='text'
-			placeholder='Task'
-			value={searchValue}
-			onChange={onChangeSearchInput}
-		/>
-	);
+	return <TodoSearchUI searchValue={searchValue} onChangeSearchInput={onChangeSearchInput} />;
 }
 
 export {TodoSearch};
