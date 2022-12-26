@@ -1,7 +1,13 @@
-import {TodoListUI} from './TodoListUI';
+import './TodoList.scss';
 
-function TodoList() {
-	return <TodoListUI />;
+function TodoList({children, emptyTodos, onEmpty, todoListFiltered, render}) {
+	return (
+		<section className='todoListContainer'>
+			{emptyTodos && onEmpty()}
+			{!emptyTodos && todoListFiltered.map(render)}
+			<ul className='TodoList'>{children}</ul>
+		</section>
+	);
 }
 
 export {TodoList};

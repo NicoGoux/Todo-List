@@ -1,16 +1,20 @@
-import {useContext} from 'react';
-import {Context} from '../Context';
-import {TodoSearchUI} from './TodoSearchUI';
+import './TodoSearch.scss';
 
-function TodoSearch() {
-	const {searchValue, setSearchValue} = useContext(Context);
-
+function TodoSearch({searchValue, setSearchValue}) {
 	const onChangeSearchInput = (event) => {
 		console.log(event.target.value);
 		setSearchValue(event.target.value);
 	};
 
-	return <TodoSearchUI searchValue={searchValue} onChangeSearchInput={onChangeSearchInput} />;
+	return (
+		<input
+			className='TodoSearch'
+			type='text'
+			placeholder='Task'
+			value={searchValue}
+			onChange={onChangeSearchInput}
+		/>
+	);
 }
 
 export {TodoSearch};

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {TodoItemUI} from './TodoItemUI';
 
-function TodoItem({todo, todoListFiltered, todoList, saveTodoList}) {
+function TodoItem({todo, todoList, saveTodoList}) {
 	const [checked, setChecked] = useState(todo.completed);
 
 	const onClickCheckBox = () => {
@@ -14,9 +14,7 @@ function TodoItem({todo, todoListFiltered, todoList, saveTodoList}) {
 	};
 
 	const onClickDelete = () => {
-		const newTodoList = todoListFiltered.filter(
-			(todoInList) => todoInList.text !== todo.text
-		);
+		const newTodoList = todoList.filter((todoInList) => todoInList.text !== todo.text);
 		saveTodoList(newTodoList);
 	};
 

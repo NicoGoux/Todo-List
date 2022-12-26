@@ -1,7 +1,5 @@
 import {Fragment} from 'react';
-import {useContext} from 'react';
 import {Modal} from '../Modal';
-import {Context} from '../Context';
 import './CreateTodoContainer.scss';
 
 function CreateTodoContainerUI({
@@ -9,9 +7,10 @@ function CreateTodoContainerUI({
 	onSubmit,
 	onClickOpenModalButton,
 	onClickCloseModalButton,
+	inputValue,
+	openModal,
+	matchesWidth,
 }) {
-	const {inputValue, openModal, matchesWidth} = useContext(Context);
-
 	return (
 		<Fragment>
 			{!matchesWidth ? (
