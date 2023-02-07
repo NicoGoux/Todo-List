@@ -20,6 +20,13 @@
 		color: global.$headline;
 	}
 
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
 	.newTodoInput {
 		width: 80%;
 		min-height: 80px;
@@ -56,7 +63,7 @@
 	}
 
 	@media (max-width: 860px) {
-		position: relative;
+		// position: relative;
 		min-width: 0;
 		width: fit-content;
 		height: fit-content;

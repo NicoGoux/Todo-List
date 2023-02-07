@@ -1,5 +1,5 @@
-import {Fragment} from 'react';
-import {Modal} from '../Modal';
+import { Fragment } from 'react';
+import { Modal } from '../Modal';
 import './CreateTodoContainer.scss';
 
 function CreateTodoContainerUI({
@@ -36,17 +36,19 @@ function CreateTodoContainerUI({
 							<div className='closeModalButton' onClick={onClickCloseModalButton}>
 								X
 							</div>
-							<h2>Create new task</h2>
-							<form onSubmit={onSubmit}>
-								<textarea
-									className='newTodoInput'
-									type='text'
-									placeholder='New task'
-									value={inputValue}
-									onChange={onInputChange}
-								/>
-								<button type='submit' className={'CreateTodoButton'}></button>
-							</form>
+							<div className='CreateTodoContainer'>
+								<h2>Create new task</h2>
+								<form onSubmit={onSubmit}>
+									<textarea
+										className='newTodoInput'
+										type='text'
+										placeholder='New task'
+										value={inputValue}
+										onChange={onInputChange}
+									/>
+									<button type='submit' className={'CreateTodoButton'}></button>
+								</form>
+							</div>
 						</Modal>
 					)}
 				</Fragment>
@@ -55,4 +57,4 @@ function CreateTodoContainerUI({
 	);
 }
 
-export {CreateTodoContainerUI};
+export { CreateTodoContainerUI };
